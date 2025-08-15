@@ -1,7 +1,7 @@
 var game;
 // Wait till the browser is ready to render the game (avoids glitches)
 window.requestAnimationFrame(function () {
-  game = new GameManager(2, KeyboardInputManager, HTMLActuator, LocalScoreManager);
+  game = new GameManager({ 'x': 2, 'y': 1 }, KeyboardInputManager, HTMLActuator, LocalScoreManager);
 });
 
 function changeGameMode() {
