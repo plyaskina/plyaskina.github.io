@@ -21,7 +21,7 @@ GameManager.prototype.restart = function () {
 
 // Set up the game
 GameManager.prototype.setup = function () {
-  this.grid         = new Grid(this.size);
+  this.grid         = new Grid(this.xsize, this.ysize);
 
   var select = document.gameModeForm.gameModeSelect;
   this.gameMode     = +(select.options[select.selectedIndex].value);
@@ -287,9 +287,11 @@ GameManager.prototype.getVector = function (direction) {
 // Build a list of positions to traverse in the right order
 GameManager.prototype.buildTraversals = function (vector) {
   var traversals = { x: [], y: [] };
-
-  for (var pos = 0; pos < this.size; pos++) {
+  
+  for (var pos = 0; pos < this.xsize; pos++) {
     traversals.x.push(pos);
+  }
+  for (var pos = 0; pos < this.ysize; pos++) {
     traversals.y.push(pos);
   }
 
@@ -326,8 +328,8 @@ GameManager.prototype.tileMatchesAvailable = function () {
 
   var tile;
 
-  for (var x = 0; x < this.size; x++) {
-    for (var y = 0; y < this.size; y++) {
+  for (var x = 0; x < this.xsize; x++) {
+    for (var y = 0; y < this.ysize; y++) {
       tile = this.grid.cellContent({ x: x, y: y });
 
       if (tile) {
