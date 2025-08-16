@@ -41,8 +41,8 @@ Grid.prototype.availableCells = function () {
 
 // Call callback for every cell
 Grid.prototype.eachCell = function (callback) {
-  for (var x = 0; x < this.size; x++) {
-    for (var y = 0; y < this.size; y++) {
+  for (var x = 0; x < this.xsize; x++) {
+    for (var y = 0; y < this.ysize; y++) {
       callback(x, y, this.cells[x][y]);
     }
   }
@@ -80,6 +80,6 @@ Grid.prototype.removeTile = function (tile) {
 };
 
 Grid.prototype.withinBounds = function (position) {
-  return position.x >= 0 && position.x < this.size &&
-         position.y >= 0 && position.y < this.size;
+  return position.x >= 0 && position.x < this.xsize &&
+         position.y >= 0 && position.y < this.ysize;
 };
