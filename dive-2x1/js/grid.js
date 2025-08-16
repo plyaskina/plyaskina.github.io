@@ -8,13 +8,11 @@ function Grid(xsize, ysize) {
 }
 
 // Build a grid of the specified size
-Grid.prototype.empty = function () {
-  var cells = [];
+Grid.prototype.build = function () {
+  for (var x = 0; x < this.size; x++) {
+    var row = this.cells[x] = [];
 
-  for (var x = 0; x < this.xsize; x++) {
-    var row = cells[x] = [];
-
-    for (var y = 0; y < this.ysize; y++) {
+    for (var y = 0; y < this.size; y++) {
       row.push(null);
     }
   }
